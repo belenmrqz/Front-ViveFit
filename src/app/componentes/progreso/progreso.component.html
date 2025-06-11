@@ -1,0 +1,80 @@
+<div class="progresoComponent">
+    <div class="rellenarProgreso">
+        <h1>Rellenar progreso: {{ tituloProgreso }}</h1>
+        <h2></h2>
+        <div class="ejercicios-grid">
+            <div class="ejercicio-container" *ngFor="let ejercicio of ejercicios; let iEjercicio = index">
+                <div class="ejercicio-nombre">{{ ejercicio.nombre }}</div>
+                <ng-container *ngIf="getClaveProgreso(ejercicio.id, iEjercicio) as clave">
+                    <table class="series-table">
+                        <thead>
+                            <tr>
+                                <th>Serie</th>
+                                <th>Repeticiones</th>
+                                <th>Peso en kg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let serie of progresoInputs[ejercicio.id + '_' + iEjercicio]; let i = index">
+                                <td>{{ i + 1 }}</td>
+                                <td><input type="number"
+                                        [(ngModel)]="progresoInputs[ejercicio.id + '_' + iEjercicio][i].repeticionesRealizadas" />
+                                </td>
+                                <td><input type="number"
+                                        [(ngModel)]="progresoInputs[ejercicio.id + '_' + iEjercicio][i].pesoUsado" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-container>
+            </div>
+
+        </div>
+        <button class="btn btn-guardar" (click)="guardarProgreso()">Guardar progreso de hoy</button>
+        <button class="btn btn-guardar" (click)="verMiProgreso()">Ver mi progreso</button>
+
+        <!-- ====== Aquí mostramos TODO el progreso por día y ejercicio ====== -->
+        <div *ngIf="mostrarProgresoHistorico" class="progreso-historico-container">
+            <h2>Progreso histórico completo</h2>
+
+            <!-- Iteramos sobre cada día de la rutina -->
+            <div *ngFor="let dia of progresoCompleto">
+                <h3>Día {{ dia.numeroDia }}</h3>
+
+                <!-- Iteramos sobre cada ejercicio de ese día -->
+                <div class="ejercicios-historico-grid">
+                    <div *ngFor="let ejerc of dia.ejercicios" class="ejercicio-historico-card">
+                        <h4>{{ ejerc.nombreEjercicio }}</h4>
+
+                        <!-- Si el ejercicio no tiene progreso, mostramos un mensaje -->
+                        <div *ngIf="!ejerc.progreso || ejerc.progreso.length === 0">
+                            <p>No hay progreso registrado para este ejercicio.</p>
+                        </div>
+
+                        <!-- Si sí tiene progreso, lo presentamos en una tabla -->
+                        <table *ngIf="ejerc.progreso && ejerc.progreso.length > 0" class="series-table">
+                            <thead>
+                                <tr>
+                                    <th>Semana</th>
+                                    <th>Serie</th>
+                                    <th>Repeticiones</th>
+                                    <th>Peso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of ejerc.progreso">
+                                    <td>{{ s.semana }}</td>
+                                    <td>{{ s.serie }}</td>
+                                    <td>{{ s.repeticiones }}</td>
+                                    <td>{{ s.peso }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</div>

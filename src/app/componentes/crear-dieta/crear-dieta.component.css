@@ -1,0 +1,136 @@
+/* crear-rutina.component.css */
+
+.rutina-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 0.5rem;
+  background-color: #F4F4F4;
+  border-radius: 10px;
+  color: #435D75;  
+}
+
+.formulario-container{
+  max-width: 400px;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #ADA7FF;
+  color: #435D75;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+   margin: 0 auto; 
+}
+
+.formulario-container h2{
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+label {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 1rem;
+  padding: 10px;
+  background-color: #435D75;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004a99;
+}
+
+.mensaje {
+  margin-top: 1rem;
+  color: green;
+}
+
+.error {
+  margin-top: 1rem;
+  color: red;
+}
+
+.resultados-container {
+  text-align: center;
+  padding: 1rem;
+  background-color: #F4F4F4;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.parte01{
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  flex: 1;
+  background-color: #E1E4FD;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.h3-macros{
+  margin-top: 3rem;
+}
+
+.macros-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-left: 7rem;
+  margin-right: 7rem;
+  flex-wrap: wrap;
+  color: #435D75;
+}
+
+.macro-card {
+  background-color: #E1E4FD;
+  color: #435D75;
+  border-radius: 10px;
+  padding: 0.25rem;
+  flex: 1;
+  min-width: 120px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.macro-card h4 {
+  margin-bottom: 0.5rem;
+}
+
+/* Botón para modificar datos */
+.btn-modificar {
+  margin-top: 2rem;
+  background-color: #435D75;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-modificar:hover {
+  background-color: #314a61;
+}

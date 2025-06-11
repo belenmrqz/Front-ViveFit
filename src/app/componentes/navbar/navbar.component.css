@@ -1,0 +1,80 @@
+.navbar {
+  background-color: #e1e4fd; /* Fondo claro */
+  color: #2d3748; /* Gris oscuro para texto */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  border-radius: 0 0 12px 12px; /* Bordes redondeados solo abajo */
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 2rem;
+}
+
+/* LISTA DE LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Centra los elementos */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* ESTILO BÁSICO DE LOS LINKS */
+.nav-links li a {
+  color: #435D75; 
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.logo-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* EFECTO HOVER */
+.nav-links li a:hover {
+  background-color: #f4f4f4; /* Azul claro */
+  color: #1a202c; /* Gris aún más oscuro */
+}
+
+/* LINK ACTIVO */
+.nav-links li a.active {
+  font-weight: bold;
+  background-color: #ADA7FF; /* Azul fuerte */
+  color: white;
+  border-bottom: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .navbar {
+    border-radius: 0; /* En móvil, sin esquinas redondeadas */
+  }
+}

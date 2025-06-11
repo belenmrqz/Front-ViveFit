@@ -1,0 +1,85 @@
+<!-- crear-rutina.component.html -->
+<div class="rutina-container">
+
+  <!-- FORMULARIO -->
+  <div *ngIf="!mostrarResultados" class="formulario-container">
+    <h2>Crear tu dieta personalizada</h2>
+
+    <form (ngSubmit)="onSubmit()">
+      <label>Peso (kg)</label>
+      <input type="number" [(ngModel)]="peso" name="peso" required>
+
+      <label>Altura (cm)</label>
+      <input type="number" [(ngModel)]="altura" name="altura" required>
+
+      <div *ngIf="mostrarSexo">
+        <label>Género</label>
+        <select [(ngModel)]="sexo" name="sexo" required>
+          <option value="">Selecciona...</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+        </select>
+      </div>
+
+      <label>Edad (años)</label>
+      <input type="number" [(ngModel)]="edad" name="edad" required>
+
+      <label>Objetivo</label>
+      <select [(ngModel)]="objetivo" name="objetivo">
+        <option value="dieta_saludable">Dieta saludable</option>
+        <option value="dieta_entrenar">Dieta para entrenar</option>
+      </select>
+
+      <label>Horas de sueño diarias</label>
+      <input type="number" [(ngModel)]="horasSueno" name="horasSueno" required>
+
+      <label>Horas activas diarias</label>
+      <input type="number" [(ngModel)]="horasActivas" name="horasActivas" required>
+
+      <button type="submit">Calcular rutina</button>
+    </form>
+
+    <div class="mensaje" *ngIf="mensaje">{{ mensaje }}</div>
+    <div class="error" *ngIf="error">{{ error }}</div>
+  </div>
+
+  <!-- RESULTADOS -->
+  <div *ngIf="mostrarResultados" class="resultados-container">
+    <h2>Resultados de tu dieta personalizada 🥦</h2>
+    <div class="parte01">
+      <div class="card">
+        <h3>TMB</h3>
+        <p>{{ resultados.tmb }} kcal/día</p>
+      </div>
+
+      <div class="card">
+        <h3>Gasto calórico diario</h3>
+        <p>{{ resultados.tmbActivo }} kcal/día</p>
+      </div>
+
+      <div class="card">
+        <h3>IMC</h3>
+        <p>{{ resultados.imc }} según la OMS: {{ resultados.imcOms }}</p>
+      </div>
+    </div>
+
+    <h3 class="h3-macros">Macronutrinetes diarios a consumir</h3>
+    <div class="macros-grid">
+      <div class="macro-card">
+        <h4>Hidratos</h4>
+        <p>{{ resultados.hidratos }} g/día</p>
+      </div>
+      <div class="macro-card">
+        <h4>Proteínas</h4>
+        <p>{{ resultados.proteina }} g/día</p>
+      </div>
+      <div class="macro-card">
+        <h4>Lípidos</h4>
+        <p>{{ resultados.lipidos }} g/día</p>
+      </div>
+    </div>
+
+    <!-- BOTÓN PARA MODIFICAR DATOS -->
+    <button class="btn-modificar" (click)="modificarDatos()">Modificar mis datos</button>
+  </div>
+</div>

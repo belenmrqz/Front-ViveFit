@@ -1,0 +1,225 @@
+*{ /*Estilos generales para toda la pagina*/
+  font-family: 'Segoe UI', sans-serif;
+}
+.crearRutinaComponent{
+  font-family: 'Segoe UI', sans-serif;
+ /* background-color: #ebece2;*/
+ width: 100%; 
+
+
+}
+
+
+/*Formulario: crear rutina----------------------------------------------------------------*/
+.form-container { /*Contendor del formulario*/
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Previene que se desborde horizontalmente */
+  }
+  
+  .form-container input[type="number"], .form-container select { /*Campos del formulario*/
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+  }
+
+  .form-container input[type="radio"] {
+    margin-right: 0.5rem;
+    align-items: center;
+  }
+  
+  .form-container h2, p { /*texto del formulario*/
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .form-container label {
+    display: inline-flex;
+    align-items: center;
+    margin: 1rem;
+    font-size: 1rem;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+  }
+/*--------------------------------------------------------------------------------*/
+
+
+
+/*Resultados formulario-----------------------------------------------------------*/
+
+.resultados-parte1 {
+  background-color: #f0f4f8;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Aumentamos el ancho máximo */
+  margin: 2rem auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Títulos centrados */
+.resultados-parte1 h2 {
+  font-size: 2rem;
+  color: #1a202c;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.resultados-parte1 h3 {
+  font-size: 1.5rem;
+  color: #4a5568;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Contenedor horizontal de resultados */
+.resultadosContenedor01 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espacio entre bloques */
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que se acomoden si no hay suficiente espacio */
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+/* Cada bloque de resultado dentro de resultadosContenedor01 */
+.resultadosContenedor01 div {
+  flex: 1 1 30%; /* Se adapta al ancho disponible */
+  min-width: 300px;
+  max-width: 100%;
+  background-color: #f7fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.resultadosContenedor01 div p {
+  margin: 0;
+  font-size: 1rem;
+  color: #2d3748;
+}
+
+/* Nota destacada */
+.resultadosContenedor02 {
+  background-color: #edf2f7;
+  padding: 1.2rem;
+  border-left: 5px solid #3182ce;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #2a4365;
+}
+
+/* Sección de continuación */
+.rutina-parte2 {
+  background-color: #e6fffa;
+  padding: 1.5rem;
+  border: 1px solid #b2f5ea;
+  border-radius: 12px;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 1000px; /* Más ancho para aprovechar la pantalla */
+}
+
+.rutina-parte2 p {
+  font-size: 1rem;
+  color: #285e61;
+  margin-bottom: 1rem;
+}
+
+/* Botón principal */
+.rutina-parte2 button {
+  background-color: #38b2ac;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rutina-parte2 button:hover {
+  background-color: #319795;
+}
+
+/*--------------------------------------------------------------------------------*/
+  
+
+
+
+/*BOTONES --------------------------------------------------------------------*/
+  button {
+    padding: 10px; /*Espacio interno del boton uniforme*/
+    border-radius: 10px; /*Bordes redondeados*/
+    border: none;
+    font-size: 16px; /*Tamaño de la letra*/
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    cursor: pointer; /*Al pasar por encima se cambia el cursor*/
+    transition: background-color 0.3s ease; 
+    background-color: #FF6392;
+    color: white;
+    display: inline-block;
+  }
+  button:hover{ /*Al pasar por encima*/
+    background-color: #f12865;
+  }
+  .buttons{
+    display: flex;
+    justify-content: space-between; /* Espacia los botones a los extremos*/
+    margin-top: 1rem;
+  }
+  /*---------------------------------------------------------------------------*/
+  
+  .rutina-parte3{
+    margin-left: 9%;
+    margin-right: 9%;
+  }
+
+  .ejercicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 50px;
+    margin-top: 20px;
+  }
+  .titulo{
+    text-align: center;
+  }
+  
+  .ejercicio-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .ejercicio-card h3{
+    text-align: center;
+  } 
+  .ejercicio-card p{
+    text-align: left;
+  } 
+  
+  .botonguardar, .siguiente-dia{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  
+  
+  

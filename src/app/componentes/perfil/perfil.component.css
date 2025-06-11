@@ -1,0 +1,110 @@
+.perfilComponent {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 2rem;
+  background-color: #F4F4F4;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.contenedorIzquierda {
+  width: 40%;
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #E1E4FD;
+  box-shadow: 0 4px 20px rgba(67, 93, 117, 0.1);
+  color: #435D75;
+}
+
+.contenedorDerecha {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.datosRutina, .datosDieta {
+  background: #E1E4FD;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #ADA7FF;
+  box-shadow: 0 4px 20px rgba(67, 93, 117, 0.1);
+  color: #435D75;
+}
+
+h2, h3 {
+  color: #435D75;
+  margin-bottom: 1rem;
+}
+
+.info-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-lista li {
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  color: #545E75;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: #435D75;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ADA7FF;
+  color: #435D75;
+}
+
+.enlace {
+  color: #435D75;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.enlace:hover {
+  color: #ADA7FF;
+}
+
+.editarInfoPersonal {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ADA7FF;
+  border-radius: 12px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(67, 93, 117, 0.1);
+  color: #435D75;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #435D75;
+}

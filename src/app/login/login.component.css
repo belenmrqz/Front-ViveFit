@@ -1,0 +1,99 @@
+
+.htmlLogin {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px; 
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 12px; /*Bordes redondos*/
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /*Profunfidad*/
+  font-family: 'Segoe UI', sans-serif;
+  }
+  .derecha, .izquierda{
+    flex: 50%;
+    margin: 20px auto;
+  }
+  
+  .registro{
+    margin-inline: 30px; /*Margen horizontal*/
+  }
+
+  .x{
+    text-align: center;
+  }
+  
+  .htmlLogin h1 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 20px;
+  }
+
+  .htmlLogin h4{
+    text-align: center;
+    color: #343a40;
+  }
+  
+  .form-group { 
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #495057;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #8895b3;
+  }
+  
+  .btnLogin {
+    width: 80%; /*Ocupa el 100% del espscio*/
+    background-color: #8895b3;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto 0;
+  }
+  
+  .btnLogin:hover {
+    background-color: #5a6377;
+    
+  }
+
+  .error {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  .palabraEnlace {
+    color: #8895b3;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-align: center;
+  }
+  
+  .palabraEnlace:hover {
+    color: #5a6377;
+  }
+  
+  

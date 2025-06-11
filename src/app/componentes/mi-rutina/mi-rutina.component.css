@@ -1,0 +1,116 @@
+.mi-rutina {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #435D75; /* azul oscuro */
+  padding: 20px;
+  background-color: #F4F4F4; /* gris claro */
+}
+
+/* Info rutina */
+.info-rutina h1 {
+  color: #435D75;
+  margin-bottom: 0rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.info-rutina strong {
+  color: #ADA7FF; /* azul medio */
+}
+
+/* Contenedor 01 - divs alineados horizontalmente */
+.contenedor-01 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contenedor-01 > div {
+  background-color: #435D75; /* azul oscuro */
+  color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 10px;
+  flex: 1;
+  box-shadow: 0 4px 10px rgba(67, 93, 117, 0.3);
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.contenedor-01 > div:hover {
+  background-color: #435D75; /* azul medio */
+  color: #ADA7FF;
+}
+
+/* Contenedor 02 */
+.contenedor-02 {
+  background-color: #E1E4FD; /* azul claro */
+  color: #435D75;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  font-style: italic;
+  box-shadow: 0 4px 8px rgba(173, 167, 255, 0.4);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.contenedor-02 strong {
+  color: #435D75;
+  font-size: 1.5rem;
+}
+
+.titulo02 {
+  color: #435D75;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Contenedor que alinea todos los días en fila */
+.contenedor-dias {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+/* Cada columna de día */
+.dia {
+  flex: 1 1 0;
+  background-color: #FFFFFF; /* blanco */
+  border: 1px solid #E1E4FD; /* azul claro */
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  min-width: 0;
+}
+
+.dia h3 {
+  color: #435D75;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* Lista vertical dentro de cada día */
+.dia ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.dia li {
+  background-color: #e1e4fd; /* azul oscuro */
+  color: #435D75;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+
+.dia li:hover {
+  background-color: #ADA7FF; /* azul medio */
+}

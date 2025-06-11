@@ -1,0 +1,176 @@
+/* Fondo y tipografía general */
+:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #545E75;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos */
+h1{
+  color: #545E75;
+  text-align: center;
+  padding-bottom: 15px;
+}
+h2 {
+  color: #545E75;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Sección de ejercicio */
+.ejercicio-container {
+  border: 1px solid #ADA7FF;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Contenedor general de ejercicios con grid */
+.ejercicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+
+.ejercicio-container:hover {
+  box-shadow: 0 4px 12px rgba(136, 149, 179, 0.2);
+}
+
+/* Nombre del ejercicio */
+.ejercicio-nombre {
+  font-weight: 600;
+  color: #545E75;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Tabla de series */
+.series-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.series-table th,
+.series-table td {
+  border: 1px solid #ADA7FF;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+}
+
+.series-table th {
+  background-color: #ADA7FF;
+  color: #fff;
+  font-weight: 600;
+}
+
+.series-table input {
+  width: 60px;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Botones */
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 1rem;
+}
+
+.btn-guardar {
+  background-color: #435D75;
+  color: #fff;
+}
+
+.btn-guardar:hover {
+  background-color: #E1E4FD;
+  color: #435D75;
+}
+
+.btn-secundario {
+  background-color: #435D75;
+  color: #fff;
+}
+
+.btn-secundario:hover {
+  background-color: #E1E4FD;
+  color: #435D75;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .series-table input {
+    width: 45px;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* src/app/progreso/progreso.component.css */
+
+/* ... tus estilos existentes ... */
+
+.progreso-historico-container {
+  margin-top: 2rem;
+}
+
+.progreso-historico-container h3 {
+  margin-top: 1.5rem;
+  color: #435D75;
+}
+
+.ejercicio-historico {
+  margin-bottom: 1rem;
+}
+
+.ejercicio-historico h4 {
+  color: #545E75;
+  margin-bottom: 0.5rem;
+}
+
+/* Nuevo grid para agrupar ejercicios horizontalmente */
+.ejercicios-historico-grid {
+  display: grid;
+grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.ejercicio-historico-card {
+  border: 1px solid #ADA7FF;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(136, 149, 179, 0.1);
+}
+
+.ejercicio-historico-card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #545E75;
+}
+
+/* Tablas más pequeñas dentro del histórico */
+.small-table th,
+.small-table td {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.85rem;
+}

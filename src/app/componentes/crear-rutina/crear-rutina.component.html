@@ -1,0 +1,116 @@
+<div class="crearRutinaComponent">
+    <div class="form-container"  *ngIf="mostrarFormulario">
+        <form [formGroup]="rutinaForm" (ngSubmit)="onSubmit()" *ngIf="!mostrarParte2">
+
+            <!--Paso 1: Definir objetivo-->
+            <div *ngIf="pasoActual === 'objetivo'" >
+                <h2>¿Cual es tu objetivo principal?</h2>
+                <p>Marca aquel que se asemeje más a tus metas</p>
+                <select formControlName="objetivo">
+                    <option value="">-- Selecciona uno --</option>
+                    <option value="fuerza">Fuerza</option>
+                    <option value="hipertrofia">Hipertrofia</option>
+                    <option value="funcional">Entrenamiento funcional</option>
+                </select>
+                <div class="error" *ngIf="isInvalid('objetivo')"> 
+                    Debes seleccionar un objetivo para continuar
+                </div>
+            </div>
+
+            <!--Paso 2: Días x semana de entrenamiento-->
+            <div *ngIf="pasoActual === 'dias'">
+                <h2>¿Cuántos días a la semana iras a entrenar?</h2>
+                <p>Como mínimo deben ser 2 y como máximo 4 para no sobrecargar el musculo</p>
+                <input type="number" min="2" max="4" formControlName="dias"/>
+                <div class="error" *ngIf="isInvalid('dias')"> 
+                    Introduce un número entre el 2 y el 4
+                </div>
+            </div>
+
+            <!--Paso 3: Definir sexo del usuario-->
+            <div *ngIf="pasoActual === 'sexo'">
+                <h2>¿Cuál es tu género?</h2>
+                <p>Es importante que conozcamos este dato para adaptarnos mejor a tu rutina ideal</p>
+                <label><input type="radio" value="masculino" formControlName="sexo" /> Masculino</label>
+                <label><input type="radio" value="femenino" formControlName="sexo" /> Femenino</label>
+                <div class="error" *ngIf="isInvalid('sexo')">Selecciona una opción.</div>
+            </div>
+
+            <!--Botones del formulario-->
+            <div class="buttons">
+                <div><button type="button" (click)="previousStep()" [disabled]="currentStep === 0"> < Anterior</button></div>
+                <div class="btn-siguiente"><button type="button" (click)="nextStep()" *ngIf="currentStep < pasos.length - 1">Siguiente > </button>
+                <button  type="submit" *ngIf="currentStep === pasos.length - 1">Crear rutina</button> </div>
+            </div>
+        </form>
+    </div>
+    
+    <!--Rellenar rutina con ejercicios-->
+    <div class="resultados-parte1" *ngIf="mostrarParte2 && rutinaAsignada && !mostrarParte3">
+        <h2>Tu rutina será</h2>
+        <h3>{{ rutinaAsignada.nombreRutina }}</h3>
+
+        <div class="resultadosContenedor01">
+            <div><p>La distribucion de la rutina será: <br>{{rutinaAsignada.distribucion}}</p></div>
+            <div><p>En cada sesión realizarás {{rutinaAsignada.series}} series de {{rutinaAsignada.numEjercicios}} a {{rutinaAsignada.repeticiones}} repeticiones</p></div>
+            <div><p>La rutina debe estar formada de unos {{rutinaAsignada.parteA}} y unos {{rutinaAsignada.parteB}}</p></div>
+        </div>
+        <div class="resultadosContenedor02">
+            <p><strong>¡Recuerda!</strong></p>
+            <p>{{rutinaAsignada.descripcion}}</p>
+        </div>
+    </div>
+
+
+    <div class="rutina-parte2" *ngIf="mostrarParte2 && !mostrarParte3">
+        <p>Ya tienes tu tipo de rutina configurada</p>
+        <p>¿Qué te parece si la llenamos de ejercicios de forma efectiva?</p>
+        <button type="button" (click)="cambioAParte3()">Rellenar rutina</button>
+    </div>
+
+
+    <div class="rutina-parte3" *ngIf="mostrarParte3">
+        <h1 class="titulo">Ejercicios para rellenar la rutina día {{i}}</h1> <br><br>
+
+        <!-- Compuestos -->
+        <h2 class="subtitulo">Ejercicios Compuestos ({{ ejCompuestos }}/{{ maxCompuestos }}):</h2>
+        <div *ngIf="ejerciciosCompuestos.length > 0" class="ejercicios-grid">
+            <div class="ejercicio-card" *ngFor="let ejercicio of ejerciciosCompuestos">
+                <h3>{{ ejercicio.nombre }}</h3> <br>
+                <p><strong>Músculos que trabaja:</strong> {{ ejercicio.musculos_implicados }}</p>
+                <p><strong>Instrumento:</strong> {{ ejercicio.instrumento }}</p>
+                <div class="botonguardar">
+                    <button (click)="guardarCompuesto(ejercicio.id)">Añadir ejercicio</button>
+                </div>
+            </div>
+        </div> <br><br><br><br><br><br>
+
+        <!-- Aislados -->
+        <h2 class="subtitulo">Ejercicios Aislados ({{ ejAislados }}/{{ maxAislados }}):</h2>
+        <div *ngIf="ejerciciosAislados.length > 0" class="ejercicios-grid">
+            <div class="ejercicio-card" *ngFor="let ejercicio of ejerciciosAislados">
+                <h3>{{ ejercicio.nombre }}</h3> <br>
+                <p><strong>Músculo que trabaja:</strong> {{ ejercicio.musculos_implicados }}</p>
+                <p><strong>Instrumento:</strong> {{ ejercicio.instrumento }}</p>
+                <div class="botonguardar">
+                    <button (click)="guardarAislado(ejercicio.id)">Añadir ejercicio</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sin ejercicios -->
+        <div *ngIf="ejerciciosCompuestos.length === 0 && ejerciciosAislados.length === 0">
+            <p>No se encontraron ejercicios para esta especialidad.</p>
+        </div>
+
+        <!-- Avanzar de día -->
+        <div class="siguiente-dia">
+            <button (click)="siguienteDia()" [disabled]="ejCompuestos < minCompuestos || ejAislados < minAislados">
+                Siguiente Día
+            </button>
+        </div>
+
+
+    </div>
+
+</div>

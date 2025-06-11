@@ -1,0 +1,135 @@
+.home-newspaper {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* CABECERA */
+.hero-banner {
+  background: linear-gradient(to right, #435D75 , #ADA7FF);
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.hero-banner h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-banner h2 {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.hero-banner p {
+  margin: 1rem auto 2rem;
+  font-size: 1.2rem;
+  max-width: 700px;
+}
+
+.btn-principal {
+  background-color: #f25f5c;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.btn-principal:hover {
+  background-color: #d9534f;
+}
+
+/* BLOQUES TIPO SECCIONES */
+.bloque-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.cards-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-block {
+  background-color: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.card-block h3 {
+  margin-bottom: 1rem;
+  color: #247ba0;
+}
+
+/* BENEFICIOS */
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  background: #ADA7FF;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.beneficio-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* TESTIMONIOS */
+.bloque-testimonios {
+  background-color: #e1e4fd;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+  color: #435D75;
+}
+
+.testimonio blockquote {
+  font-style: italic;
+  margin: 1rem auto;
+  max-width: 700px;
+  border-left: 4px solid #435D75;
+  padding-left: 1rem;
+}
+
+.testimonio footer {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* CTA FINAL */
+.bloque-final {
+  color: #435D75;
+  background-color: #ffb3c6;
+  padding: 0.5rem 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.bloque-final h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bloque-final p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,45 @@
+<div class="mi-rutina">
+
+    <div class="info-rutina">
+        <h1>Hola {{usuario?.nombre}} tu rutina asignada es <br><strong>{{tipoRutinas?.nombreRutina}}</strong></h1><br><br>
+
+        <div class="contenedor-01">
+            <div>
+                <p>La distribucion de la rutina es: {{tipoRutinas?.distribucion}}</p>
+            </div>
+            <div>
+                <p>Tu rutina está formada de unos {{tipoRutinas?.parteA}} y unos {{tipoRutinas?.parteB}}</p>
+            </div>
+            <div>
+                <p>En cada sesión realizarás {{tipoRutinas?.series}} series de {{tipoRutinas?.numEjercicios}} a
+                    {{tipoRutinas?.repeticiones}} repeticiones</p>
+            </div>
+        </div>
+        <div class="contenedor-02">
+            <p><strong>¡Recuerda!</strong></p>
+            <p>{{tipoRutinas?.descripcion}}</p>
+        </div> <br><br>
+
+
+    </div>
+    <h2 class="titulo02">Aquí tienes los ejercicios de cada día</h2>
+    <div class="contenedor-dias">
+        <div  class="dia" *ngFor="let dia of arrayDesdeDias(); let i = index">
+            <h3>Día {{ dia }}</h3>
+            <ul *ngIf="ejerciciosPorDia[dia] && ejerciciosPorDia[dia].length > 0; else sinEjercicios">
+                <li *ngFor="let ejercicio of ejerciciosPorDia[dia]">
+                    {{ ejercicio.nombre }}
+                </li>
+            </ul>
+            <ng-template #sinEjercicios>
+                <p>No hay ejercicios cargados para este día.</p>
+            </ng-template>
+            <p *ngIf="!arrayDesdeDias()?.length">No hay días disponibles.</p>
+    
+        </div>
+    </div>
+
+
+
+
+</div>

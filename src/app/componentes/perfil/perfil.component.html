@@ -1,0 +1,60 @@
+<div class="perfilComponent" *ngIf="!verFormulario01">
+  <div class="contenedorIzquierda">
+    <h1>Bienvenido/a a tu perfil {{usuario?.nombre}}</h1>
+    <h2>Aquí encontrarás toda tu información resumida</h2><br>
+    <h3>👤 Mi perfil</h3>
+    <ul class="info-lista">
+      <li><strong>Nombre:</strong> {{ usuario?.nombre }}</li>
+      <li><strong>Apellidos:</strong> {{ usuario?.apellidos }}</li>
+      <li><strong>Email:</strong> {{ usuario?.email }}</li>
+      <li><strong>Fecha de nacimiento:</strong> {{ usuario?.fechaNacimiento }}</li>
+      <li><strong>Sexo:</strong> {{ usuario?.sexo }}</li>
+    </ul>
+    <div class="btn-group">
+      <button (click)="btnEditarInfoPersonal()">✏️ Editar</button>
+      <button (click)="cerrarSesion()">🚪 Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div class="contenedorDerecha">
+    <div class="datosRutina">
+      <h3>🏋️ Mi rutina</h3>
+      <p><strong>Tipo:</strong> {{ rutina?.nombreRutina }}</p>
+      <p class="enlace" (click)="irAMiRutina()">📋 Ver rutina de ejercicios</p>
+      <p class="enlace" (click)="irAProgreso()">📈 Ver progreso (próximamente)</p>
+    </div>
+
+    <div class="datosDieta">
+      <h3>🥗 Mi dieta</h3>
+      <p><strong>TMB:</strong> {{ usuario?.tmbActivo }} kcal/día</p>
+      <p><strong>IMC:</strong> {{ usuario?.imc }} ({{ usuario?.imcOms }})</p>
+      <p><strong>Grasas:</strong> {{ usuario?.lipidos }} g/día</p>
+      <p><strong>Hidratos:</strong> {{ usuario?.hidratos }} g/día</p>
+      <p><strong>Proteínas:</strong> {{ usuario?.proteina }} g/día</p>
+      <p class="enlace" (click)="irADieta()">Ver mi dieta</p>
+    </div>
+  </div>
+</div>
+
+<!-- FORMULARIO EDICIÓN -->
+<div class="editarInfoPersonal" *ngIf="verFormulario01">
+  <h2>Editar información personal 🛠️</h2>
+  <form [formGroup]="form" (ngSubmit)="editarInfoPersonal()">
+    <label>Nombre:</label>
+    <input formControlName="nombre" type="text" />
+
+    <label>Apellidos:</label>
+    <input formControlName="apellidos" type="text" />
+
+    <label>Email:</label>
+    <input formControlName="email" type="email" />
+
+    <label>Contraseña (opcional):</label>
+    <input formControlName="contrasena" type="password" />
+
+    <label>Fecha de nacimiento:</label>
+    <input formControlName="fechaNacimiento" type="date" />
+
+    <button type="submit">💾 Guardar cambios</button>
+  </form>
+</div>

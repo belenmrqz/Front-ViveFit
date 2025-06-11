@@ -1,0 +1,124 @@
+<div class="htmlLogin">
+    <div class="izquierda">
+        <img src="/imagenes/login.png" alt="logo" width="500">
+    </div>
+
+    <div class="derecha">
+        <div class="registro" *ngIf="!ocultarRegistro"> <!--Aparece registro si no tienes cuenta si se oculta inicio de sesion-->
+
+            <h1>Regístrate ;)</h1>
+            <h4>¿Ya tienes cuenta?</h4>
+            <p class="palabraEnlace" (click)="iniciarSesion()">Iniciar sesión aquí</p>
+
+            <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+                
+                <!--1º Campo: Nombre-->
+                <div class="form-group">
+                    <label>Nombre : </label>
+                    <input type="text" class="form-control" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" 
+                    required minlength="2" maxlength="255" [pattern]="'^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$'" #nombre="ngModel">
+
+                    <div class="error" *ngIf="nombre.invalid && nombre.touched">
+                        <small *ngIf="nombre.errors?.['required']">El nombre es un campo obligatorio</small>
+                        <small *ngIf="nombre.errors?.['minlength']">El nombre debe tener como mínimo 2 carácteres</small>
+                        <small *ngIf="nombre.errors?.['pattern']">Solo se permiten letras</small>
+                        <small *ngIf="nombre.errors?.['maxlength']">El nombre debe tener como máximo 255 caracteres</small>
+                    </div>
+                </div>
+
+                <!--2º Campo: Apellidos-->
+                <div class="form-group">
+                    <label>Apellidos : </label>
+                    <input type="text" class="form-control" id="apellidos" [(ngModel)]="usuario.apellidos" name="apellidos"
+                    required minlength="2" maxlength="255" [pattern]="'^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$'" #apellidos="ngModel">
+
+                    <div class="error" *ngIf="apellidos.invalid && apellidos.touched">
+                        <small *ngIf="apellidos.errors?.['required']">Los apellidos es un campo obligatorio</small>
+                        <small *ngIf="apellidos.errors?.['minlength']">Los apellidos deben tener como mínimo 2 carácteres</small>
+                        <small *ngIf="apellidos.errors?.['maxlength']">Los apellidos deben tener como máximo 255 caracteres</small>
+                        <small *ngIf="apellidos.errors?.['pattern']">Solo se permiten letras</small>
+                    </div>
+                </div>
+
+                <!--3º Campo: Fecha de nacimiento-->
+                <div class="form-group">
+                    <label>Fecha de nacimiento : </label>
+                    <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento" name="fechaNacimiento"
+                    required #fechaNacimiento="ngModel">
+
+                    <div class="error" *ngIf="fechaNacimiento.invalid && fechaNacimiento.touched">
+                        <small>Fecha requerida.</small>
+                    </div>
+                </div>
+
+                <!--4º Campo: Email-->
+                <div class="form-group">
+                    <label>Email : </label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" name="email"
+                    required email #email="ngModel" (input)="verificarEmail()" (blur)="verificarEmail()">
+
+                    <div class="error" *ngIf="email.invalid && email.touched">
+                        <small *ngIf="email.errors?.['required']">El email es un campo obligatorio</small>
+                        <small *ngIf="email.errors?.['email']">Formato email no válido</small>
+                        <small *ngIf="emailRepetido && email.touched">Este email ya está registrado</small>
+                    </div>
+                </div>
+
+                <!--5º Campo: Contraseña-->
+                <div class="form-group">
+                    <label>Contraseña : </label>
+                    <input type="password" class="form-control" id="contrasena" [(ngModel)]="usuario.contrasena" name="contrasena"
+                    required [pattern]="passwordPattern" minlength="8" maxlength="25" #contrasena="ngModel" >
+
+                    <div class="error" *ngIf="contrasena.invalid && contrasena.touched">
+                        <small *ngIf="contrasena.errors?.['required']">La contraseña es un campo obligatorio.</small>
+                        <small *ngIf="contrasena.errors?.['minlength']">La contraseña debe tener al menos 8 carácteres</small>
+                        <small *ngIf="contrasena.errors?.['maxlength']">La contraseña debe tener como máximo 25 carácteres</small>
+                        <small *ngIf="contrasena.errors?.['pattern']">La contraseña debe tener al menos:
+                            <ul>
+                                <li>1 letra mayúscula</li>
+                                <li>1 letra minúscula</li>
+                                <li>1 número</li>
+                                <li>1 carácter especial</li>
+                            </ul>
+                        </small>
+                    </div>
+                </div>
+
+                <!--6º Campo: Repetir contraseña-->
+                <div class="form-group">
+                    <label>Repetir contraseña : </label>
+                    <input type="password" class="form-control" id="repetirContrasena" [(ngModel)]="usuarioContrasena.confirmarContrasena" name="confirmarContrasena"
+                    required minlength="8" maxlength="25" #confirmarContrasena="ngModel">
+
+                    <div class="error" *ngIf="confirmarContrasena.touched && usuarioContrasena.confirmarContrasena !== usuario.contrasena">
+                        <small>Las contraseñas no coinciden.</small>
+                    </div>
+                </div>    
+
+                <button class="btnLogin">Registrar usuario</button>
+            </form>
+        </div>
+
+        <div class="registro" *ngIf="ocultarRegistro">
+            <h1>Iniciar sesión ;)</h1>
+            <h4 class="x">¿No tienes cuenta?</h4>
+            <p class="palabraEnlace" (click)="registrate()">Regítrate aquí</p>
+
+            <form #formLogin="ngForm" (ngSubmit)="IniciarSesion()">
+                <!--1º Campo: Email-->
+                <div class="form-group">
+                    <label>Email : </label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" name="email">
+                </div>
+
+                <!--2º Campo: Contraseña-->
+                <div class="form-group">
+                    <label>Contraseña : </label>
+                    <input type="password" class="form-control" id="contrasena" [(ngModel)]="usuario.contrasena" name="contrasena">
+                </div>
+            <button class="btnLogin" type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+</div>
