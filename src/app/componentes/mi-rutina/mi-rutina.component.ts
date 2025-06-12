@@ -10,6 +10,7 @@ import { TipoRutina } from '../../tipo-rutina';
 import { Ejercicio } from '../../ejercicio';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, Inject } from '@angular/core';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class MiRutinaComponent implements OnInit{
 
 
 
- constructor(private usuarioService: UsuarioService,  @Inject(PLATFORM_ID) private platformId: Object) {}
+ constructor(private usuarioService: UsuarioService,  @Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
 
   ngOnInit(): void {
   if (isPlatformBrowser(this.platformId)) {
@@ -39,11 +40,25 @@ export class MiRutinaComponent implements OnInit{
 
     if (!this.usuario || !this.usuario.id || !this.usuario.idRutina) {
       console.warn('Usuario no válido o sin rutina asignada');
+      
+      Swal.fire({
+        title: 'Aun no tienes Rutina',
+        text: 'Te ayudaremos a buscar la que mas se asejeme a tus objetivos',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Crea tu rutina ahora'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/home/crearRutina']);
+        }
+      });
       return;
     }
 
     const idUsuario = this.usuario.id;
     const idRutinaUsuario = this.usuario.idRutina;
+
+    
 
     this.usuarioService.getRutinaPorId(idRutinaUsuario).subscribe({
       next: (rutina) => {

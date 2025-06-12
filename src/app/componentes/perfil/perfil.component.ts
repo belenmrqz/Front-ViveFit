@@ -6,6 +6,7 @@ import { TipoRutina } from '../../tipo-rutina';
 import { MiRutinaComponent } from '../mi-rutina/mi-rutina.component';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-perfil',
@@ -83,7 +84,10 @@ editarInfoPersonal() {
 
   this.usuarioService.actualizarDatosUsuario(this.usuario.id, datosActualizados).subscribe({
     next: () => {
-        alert('Datos actualizados con éxito.');
+        Swal.fire({
+        icon: 'success',
+        title: 'Datos actualizados correctamente',
+      });
         // Actualizamos los datos locales del usuario
         const usuarioActualizado = {
           ...this.usuario,
@@ -96,8 +100,10 @@ editarInfoPersonal() {
       },
       error: (err) => {
         console.error('Error al actualizar:', err);
-        alert('Ocurrió un error al guardar los cambios.');
-      }
+        Swal.fire({
+        icon: 'error',
+        title: 'Error al actualizar datos, intentelo de nuevo más tarde',
+      });      }
     });
   }
 }

@@ -254,7 +254,7 @@ export class CrearRutinaComponent implements OnInit{
           this.minAislados = filtros.minAislados;
           this.maxAislados = filtros.maxAislados;
 
-          this.cargarEjerciciosPorDia(); // 👈 Nueva función separada
+          this.cargarEjerciciosPorDia(); // Nueva función separada
           },
           error: err => {
             console.error('Error al obtener filtros:', err);
